@@ -20,13 +20,13 @@ namespace CarPlant
 			_rearRight = new Wheel("rear right");
 		}
 
-		public void TurnLeft(int degrees)
+		public virtual void TurnLeft(int degrees)
 		{
 			_frontLeft.turnLeft(degrees);
 			_frontRight.turnLeft(degrees);
 		}
 
-		public void TurnRight(int degrees)
+		public virtual void TurnRight(int degrees)
 		{
 			_frontLeft.turnRight(degrees);
 			_frontRight.turnRight(degrees);
