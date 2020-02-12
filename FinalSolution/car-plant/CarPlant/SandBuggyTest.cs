@@ -6,7 +6,7 @@ namespace CarPlant
 	[TestClass]
 	public class SandBuggyTest
 	{
-		private SandBuggy buggy;
+		private Car buggy;
 
 		[TestInitialize]
 		public void Init()

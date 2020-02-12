@@ -2,30 +2,40 @@ namespace CarPlant {
 	public class CarPlant
 	{
         public static string LOG;
-
-		public static ToyotaCorolla makeToyotaCorolla()
+		public static Car makeToyotaCorolla()
 		{
-			return new ToyotaCorolla();
+			return new Car("Toyota Corolla")
+                .WithWheelDrive(new FrontWheelDrive())
+                .WithAcceleration(new FrontWheelAcceleration());
+        }
+
+		public static Car makeToyotaCorollaSports()
+		{
+			return new Car("Toyota Corolla sports")
+                .WithWheelDrive(new FrontWheelDrive())
+                .WithAcceleration(new RearWheelAcceleration());
 		}
 
-		public static ToyotaCorollaSports makeToyotaCorollaSports()
-		{
-			return new ToyotaCorollaSports();
-		}
+        public static Car makeSandBuggyLite()
+        {
+            return new Car("Sand Buggy Lite")
+                .WithWheelDrive(new FourWheelDrive())
+                .WithAcceleration(new RearWheelAcceleration());
+        }
 
-		public static MitsubishiTriton makeMitsubishiTriton()
-		{
-			return new MitsubishiTriton();
-		}
+		public static Car makeMitsubishiTriton()
+        {
+            return new Car("Mitsubishi Triton")
+                .WithWheelDrive(new FrontWheelDrive())
+                .WithAcceleration(new FourWheelAcceleration());
 
-		public static SandBuggy makeSandBuggy()
-		{
-			return new SandBuggy();
-		}
+        }
 
-		public static SandBuggyLite makeSandBuggyLite()
+		public static Car makeSandBuggy()
 		{
-			return new SandBuggyLite();
+			return new Car("Sand Buggy")
+                .WithWheelDrive(new FourWheelDrive())
+                .WithAcceleration(new FourWheelAcceleration());
 		}
 	}
 }

@@ -1,35 +1,51 @@
-using System;
-
 namespace CarPlant
 {
-	public abstract class Car
-	{
-		private readonly Wheel _frontLeft;
-        private readonly Wheel _frontRight;
-        private readonly Wheel _rearLeft;
-        private readonly Wheel _rearRight;
+    public class Car
+    {
+        public readonly string _name;
+        private readonly IWheelDrive _wheelDrive;
+        private readonly IAcceleration _acceleration;
+        
+        public Car(string name)
+        {
+            _name = name;
+        }
 
-		public abstract string Name ();
-		public abstract void Accelerate(int kmsPerHour);
+        private Car(string name, IWheelDrive wheelDrive, IAcceleration acceleration)
+        {
+            _name = name;
+            _wheelDrive = wheelDrive;
+            _acceleration = acceleration;
+        }
 
-		protected Car()
-		{
-			_frontLeft = new Wheel("front left");
-			_frontRight = new Wheel("front right");
-			_rearLeft = new Wheel("rear left");
-			_rearRight = new Wheel("rear right");
-		}
+        public string Name()
+        {
+            return _name;
+        }
 
-		public virtual void TurnLeft(int degrees)
-		{
-			_frontLeft.turnLeft(degrees);
-			_frontRight.turnLeft(degrees);
-		}
+        public void TurnLeft(int degrees)
+        {
+            _wheelDrive.TurnLeft(degrees);
+        }
 
-		public virtual void TurnRight(int degrees)
-		{
-			_frontLeft.turnRight(degrees);
-			_frontRight.turnRight(degrees);
-		}
-	}
+        public void TurnRight(int degrees)
+        {
+            _wheelDrive.TurnRight(degrees);
+        }
+
+        public void Accelerate(int kph)
+        {
+            _acceleration.Accelerate(kph);
+        }
+
+        public Car WithWheelDrive(IWheelDrive wheelDrive)
+        {
+            return new Car(_name, wheelDrive, _acceleration);
+        }
+
+        public Car WithAcceleration(IAcceleration acceleration)
+        {
+            return new Car(_name, _wheelDrive, acceleration);
+        }
+    }
 }

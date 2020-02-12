@@ -6,7 +6,7 @@ namespace CarPlant
 	[TestClass]
 	public class MitsubishiTritonTest
 	{
-		private MitsubishiTriton triton;
+		private Car triton;
 
 		[TestInitialize]
 		public void Init()
