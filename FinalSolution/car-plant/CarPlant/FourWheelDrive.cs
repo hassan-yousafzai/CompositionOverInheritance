@@ -2,33 +2,33 @@ namespace CarPlant
 {
     public class FourWheelDrive : IWheelDrive
     {
-        private readonly Wheel _frontLeft;
-        private readonly Wheel _frontRight;
-        private readonly Wheel _rearLeft;
-        private readonly Wheel _rearRight;
+        private readonly IWheel _frontLeft;
+        private readonly IWheel _frontRight;
+        private readonly IWheel _rearLeft;
+        private readonly IWheel _rearRight;
 
-        public FourWheelDrive()
+        public FourWheelDrive(IWheel frontLeft, IWheel frontRight, IWheel rearLeft, IWheel rearRight)
         {
-            _frontLeft = new Wheel("front left");
-            _frontRight = new Wheel("front right");
-            _rearLeft = new Wheel("rear left");
-            _rearRight = new Wheel("rear right");
+            _frontLeft = frontLeft;
+            _frontRight = frontRight;
+            _rearLeft = rearLeft;
+            _rearRight = rearRight;
         }
         
         public void TurnLeft(int degrees)
         {
-            _frontLeft.turnLeft(degrees);
-            _frontRight.turnLeft(degrees);
-            _rearLeft.turnLeft(degrees);
-            _rearRight.turnLeft(degrees);
+            _frontLeft.TurnLeft(degrees);
+            _frontRight.TurnLeft(degrees);
+            _rearLeft.TurnLeft(degrees);
+            _rearRight.TurnLeft(degrees);
         }
 
         public void TurnRight(int degrees)
         {
-            _frontLeft.turnRight(degrees);
-            _frontRight.turnRight(degrees);
-            _rearLeft.turnRight(degrees);
-            _rearRight.turnRight(degrees);
+            _frontLeft.TurnRight(degrees);
+            _frontRight.TurnRight(degrees);
+            _rearLeft.TurnRight(degrees);
+            _rearRight.TurnRight(degrees);
         }
     }
 }

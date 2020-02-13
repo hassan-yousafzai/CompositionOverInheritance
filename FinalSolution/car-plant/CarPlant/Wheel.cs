@@ -1,24 +1,29 @@
 namespace CarPlant {
+    public interface IWheel
+    {
+        void TurnLeft(int degrees);
+        void TurnRight(int degrees);
+        void Rotate(int kph);
+    }
 
-	public class Wheel {
-
-		private string name;
+	public class Wheel : IWheel
+    {
+		private readonly string _name;
 
 		public Wheel(string name) {
-			this.name = name;
+			_name = name;
 		}
 
-		public void turnLeft(int degrees) {
-			CarPlant.LOG += name + " turning left " + degrees + " degrees\n";
+		public void TurnLeft(int degrees) {
+			CarPlant.LOG += _name + " turning left " + degrees + " degrees\n";
 		}
 
-		public void turnRight(int degrees) {
-			CarPlant.LOG += name + " turning right " + degrees + " degrees\n";
+		public void TurnRight(int degrees) {
+			CarPlant.LOG += _name + " turning right " + degrees + " degrees\n";
 		}
 
-		public void rotate(int kph) {
-			CarPlant.LOG += name + " accelerating " + kph + " kph\n";
+		public void Rotate(int kph) {
+			CarPlant.LOG += _name + " accelerating " + kph + " kph\n";
 		}
-
 	}
 }

@@ -2,26 +2,25 @@ namespace CarPlant
 {
     public class RearWheelDrive : IWheelDrive
     {
-        private readonly Wheel _rearLeft;
-        private readonly Wheel _rearRight;
+        private readonly IWheel _rearLeft;
+        private readonly IWheel _rearRight;
 
-        public RearWheelDrive()
+        public RearWheelDrive(IWheel rearLeft, IWheel rearRight)
         {
-            _rearLeft = new Wheel("rear left");
-            _rearRight = new Wheel("rear right");
+            _rearLeft = rearLeft;
+            _rearRight = rearRight;
         }
-        
+
         public void TurnLeft(int degrees)
         {
-            _rearLeft.turnLeft(degrees);
-            _rearRight.turnLeft(degrees);
+            _rearLeft.TurnLeft(degrees);
+            _rearRight.TurnLeft(degrees);
         }
 
         public void TurnRight(int degrees)
         {
-            _rearLeft.turnRight(degrees);
-            _rearRight.turnRight(degrees);
+            _rearLeft.TurnRight(degrees);
+            _rearRight.TurnRight(degrees);
         }
-
     }
 }
