@@ -38,12 +38,12 @@ namespace CarPlant
             _acceleration.Accelerate(kph);
         }
 
-        public Car WithWheelDrive(IWheelDrive wheelDrive)
+        public Car WithWheelSteering(IWheelDrive wheelDrive)
         {
             return new Car(_name, wheelDrive, _acceleration);
         }
 
-        public Car WithAcceleration(IAcceleration acceleration)
+        public Car WithWheelAcceleration(IAcceleration acceleration)
         {
             return new Car(_name, _wheelDrive, acceleration);
         }

@@ -37,6 +37,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RobinReliantTest.cs" />
     <Compile Include="ToyotaCorollaTest.cs" />
     <Compile Include="TestHelpers.cs" />
     <Compile Include="ToyotaCorollaSportsTest.cs" />
